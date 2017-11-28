@@ -27,8 +27,12 @@ print("I have a car called %s. It's a %s" % (car_name, car_type)) # Watch the or
 
 # Here is where we get a little fancy
 print("What is your name?")
-name = input(">_")
+name = "Adam Vang"
+(">_")
 print("Hello %s." % name)
 
-age = input("How old are you?")
-print ("%s! That's really old. You belong in a retirement home.")
+age = 15
+print("How old are you?")
+print ("%s! That's really old. You belong in a retirement home." % 15)
+
+print("My favorite character in League of Legend is Rakan")
