@@ -16,18 +16,8 @@ print("Guess")
 # 4. Add "Higher" amd "Lower"
 # 5. Add 5 guess
 
+user_guess = input(" ")
 
-correct_answer = (random.randint(1, 3))
+correct_answer = (random.randint(1, 1))
 
-user_guess = correct_answer
-
-user_guess(input(" "))
-
-def user_guess(correct_answer):
-    user_guess(input(" "))
-    if correct_answer >= user_guess:
-        print("Lower")
-    elif correct_answer <= user_guess:
-        print("Higher")
-
-
+def
