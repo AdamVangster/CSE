@@ -13,11 +13,18 @@ print("Guess")
 # 1. Generate a number
 # 2. Ask the user for an input(number)
 # 3. Does the guess match the number
-# 4. Add "Higher" amd "Lower"
+# 4. Add "Higher" and "Lower"
 # 5. Add 5 guess
+# correct_answer = (random.randint(1, 1))
 
 user_guess = input(" ")
 
-correct_answer = (random.randint(1, 1))
+print(random.randint(1, 1))
 
-def
+def user_guess(ranint):
+    if user_guess == correct_answer:
+        return "Correct"
+    elif user_guess >= correct_answer:
+        return("Higher")
+    elif user_guess <= correct_answer:
+        return("Lower")

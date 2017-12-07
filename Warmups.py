@@ -11,8 +11,20 @@
 
 # 12.6.17
 
-def add(num1, num2, num3):
-    print(num1 + num2 + num3)
+# def add(num1, num2, num3):
+#     print(num1 + num2 + num3)
+#
+# add(15, 18, 9000)
+# add(80, 90 ,100)
 
-add(15, 18, 9000)
-add(80, 90 ,100)
+# 12.7.16
+
+def repeat(food):
+    print(food)
+    print(food)
+    print(food)
+#or
+    print(food + "/n" + food + "/n" + food + "/n")
+#or
+    for x in range(3):
+        print(food)
