@@ -17,11 +17,15 @@ print("Guess")
 # 5. Add 5 guess
 # correct_answer = (random.randint(1, 1))
 
-user_guess = input(" ")
+answer = random.randint(1, 50)
+turns_left = 5
+correct_guess = False
 
 print(random.randint(1, 1))
 
-def user_guess(ranint):
+while turns_left > 0 and correct_guess is false:
+    guess = int(input("guess a number between 1 and 50: "))
+
     if user_guess == correct_answer:
         return "Correct"
     elif user_guess >= correct_answer:
