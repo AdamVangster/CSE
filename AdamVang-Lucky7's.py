@@ -10,6 +10,7 @@ print("and a additional 4 dollar too.")
 
 your_money = 15
 rounds = 0
+highest = 15
 
 while your_money > 0:
     D1 = random.randint(1, 6)
@@ -18,21 +19,15 @@ while your_money > 0:
 
     if total == 7:
         print("You got your money back and $4 more")
-        your_money += 5
+        your_money += 4
         rounds += 1
-        print(your_money)
-    elif total < 7:
-        print("You lost $1")
-        rounds += 1
-        your_money -= 1
-        print(your_money)
-    elif total > 7:
+        highest += 4
+        print("You have %s dollars" % your_money)
+    else:
         print("You lost $1")
         your_money -= 1
         rounds += 1
-        print(your_money)
+        print("You have %s dollars" % your_money)
     if your_money == 0:
         print("You lasted %s rounds" % rounds)
-
-
-
+        print("The highest money you got is $%s" % highest)
