@@ -28,20 +28,20 @@ guesses = 11
 while guesses > 0:
     output = []
     for letter in strOne:
-        if letter in letters_guessed:
+        if letter.lower() in letters_guessed:
             output.append(letter)
         else:
             output.append("*")
     print(output)
 
-    current_guess = input("Guess A Letter or The Word: ")
-    if current_guess != letter:
+    current_guess = input("Guess A Letter or The Word: ").lower()
+    if current_guess not in strOne:
         guesses -= 1
         print("You have %s more guesses." % guesses)
     letters_guessed.append(current_guess)
     print("Letters You Guessed: %s " % letters_guessed)
-    if current_guess == strOne:
-        print("Correct")
     if guesses == 0:
         print("You Lose")
-
+    if current_guess == strOne:
+        print("Correct")
+        "".join(output)
