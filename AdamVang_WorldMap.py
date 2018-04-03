@@ -63,7 +63,7 @@ Horror_House_Map = {
         'NAME': 'Living Room',
         'DESCRIPTION': 'This is a living room with a picture frame.',
         'PATHS': {
-            'WEST': 'ARCADE',
+            'WEST': 'ARCADE RM',
             'SOUTH': 'EMPTY RM.2',
             'EAST': 'EMPTY RM.1',
             'NORTH': 'HALLWAY'
