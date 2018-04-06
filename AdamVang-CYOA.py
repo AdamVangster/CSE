@@ -1,4 +1,5 @@
 import time
+import random
 time_delay_short = .2  # default is 2
 time_delay_long = .3  # Default is 3
 
@@ -30,22 +31,28 @@ class Item(object):
         self.description = description
 
     def pick_up(self):
-        print("You picked up the %s" % self.name)
+        if command == 'pick up':
+            print("You picked up the %s" % self.name)
 
     def drop(self):
-        print("You dropped the %s" % self.name)
+        if command == 'drop':
+            print("You dropped the %s" % self.name)
 
     def eat(self):
-        print("You ate the %s" % self.name)
+        if command == 'eat':
+            print("You ate the %s" % self.name)
 
     def drink(self):
-        print("You drank %s" % self.name)
+        if command == 'drink':
+            print("You drank %s" % self.name)
 
     def put_on(self):
-        print("You put on the %s" % self.name)
+        if command == 'put on':
+            print("You put on the %s" % self.name)
 
     def open(self):
-        print("You open the %s" % self.name)
+        if command == 'open':
+            print("You open the %s" % self.name)
 
 
 class Interactable(object):
@@ -54,16 +61,16 @@ class Interactable(object):
         self.description = description
 
     def move(self):
-        print("You moved the %s" % self.name)
+        if command == 'move':
+            print("You moved the %s" % self.name)
 
     def hide(self):
-        print("You hid in the %s" % self.name)
-
-    def smash(self):
-        print("You smashed the %s" % self.name)
+        if command == 'hide':
+            print("You hid in the %s" % self.name)
 
     def open(self):
-        print("You opened the %s" % self.name)
+        if command == 'open':
+            print("You opened the %s" % self.name)
 
 
 # Intractable
@@ -100,9 +107,6 @@ class Drawer(Interactable):
     def open(self):
         Interactable.open(self.name)
 
-    def smash(self):
-        Interactable.smash(self.name)
-
 
 class FrontDoor(Interactable):
     def __index__(self, name, description):
@@ -120,9 +124,6 @@ class Tool(Item, Interactable):
 
     def open(self):
         Interactable.open(self.name)
-
-    def smash(self):
-        Interactable.smash(self.name)
 
 
 # Keys/Tool
@@ -171,7 +172,8 @@ class StorageKey(Key):
         Key.open(self.name)
 
     def pick_up(self):
-        Item.pick_up(self.name)
+        if Item.pick_up(self.name):
+            print("You picked up the storage key.")
 
     def drop(self):
         Item.drop(self.name)
@@ -336,9 +338,6 @@ class Character(object):
     def name(self):
         print("%s" % self.name)
 
-    def move(self):
-        print("You moved to a different room.")
-
     def health(self):
         print("You took damage. A lot of damage.")
 
@@ -375,7 +374,7 @@ class Hero(Character):
         print("You only have 1 health.")
 
     def move(self, direction):
-        self.location = globals()[getattr(self, direction)]
+        self.location = globals()[getattr(self.location, direction)]
 
 
 # Rooms
@@ -395,7 +394,7 @@ lock_key = LockKey("Lock Key", "This key is use to open the lock on the front do
 safe_key = SafeKey("Safe Key", "This key is use to open a safe.")
 storage_key = StorageKey("Storage Key", "You can the lock on the door at the storage key.")
 jar = Jar("Jar", "Looks like you can throw this.")
-backpack = Backpack("Backpack", "You can carry the backpack but it's useless.")
+backpack = Backpack("Backpack", "You can carry the backpack but it's useless.", lock_key)
 box = Box("Box", "There's nothing in the box, you can move them.")
 mask = Mask("Mask", "You can wear this mask to make your self looks cool.")
 clothes = Clothes("Clothes", "You can wear these clothes to make you looks good.")
@@ -415,7 +414,7 @@ ghost = Ghost("Tina", "She is satan daughter.")
 entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "The door is behind you is locked.")
 empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "livingRm", "This is a empty room with a locker.")
 kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "There's a cabinet that is open.")
-empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "A empty room with a backpack.")
+empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "A empty room with a backpack.", backpack)
 living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hally_way", "arcade_Rm", "There's a tilted picture frame.")
 arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.")
 storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "There's a safe inside the storage room.")
@@ -428,9 +427,37 @@ bedroom2 = Room("BedRoom", "hallway", None, "bathroom2", "closet2", "This is a n
 closet2 = Room("Closet", None, "bedroom2", None, None, "This closet have a lot of boxes and clothes.")
 bathroom2 = Room("Bathroom", "bedroom2", None, None, None, "The bathroom have creepy painting.")
 
+
+def randomize_containter():
+    list_of_keys = [storage_key, lock_key, safe_key]
+    list_of_containers = [backpack, jar, box, drawer, safe]
+    for key in list_of_keys:
+        picked = False
+        container = None
+        while not picked or container is None:
+            container = random.choice(list_of_containers)
+            if key in [safe_key, storage_key] and container == safe:
+                pass
+            else:
+                picked = True
+        container.items = key
+
+
+def randomize_item_room():
+    list_of_items = [backpack, jar, drawer, box]
+    list_of_rooms = [storage_rm, arcade_rm, empty_rm2, bedroom1, closet2, living_rm, closet1, kitchen,
+                     entrance, empty_rm1, empty_rm3]
+    for item in list_of_items:
+        room = random.choice(list_of_rooms)
+        room.item = item
+        list_of_rooms.remove(room)
+
+
 hero.location = entrance
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
+randomize_containter()
+randomize_item_room()
 
 while True:
     print(hero.location.name)
