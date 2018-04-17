@@ -23,7 +23,18 @@ Instruction = {
     print("Good Luck")
 }
 
-print("------------------------------------------------------------")
+print()
+
+
+def hide():
+    Interactable.hide(locker)
+    print()
+    cmd = ""
+    while cmd != "get out":
+        cmd = input(">_ ")
+        if cmd == "get out":
+            Interactable.get_out(locker)
+    print()
 
 
 # Items
@@ -33,28 +44,22 @@ class Item(object):
         self.description = description
 
     def pick_up(self):
-        if command == 'pick up':
-            print("You picked up the %s" % self.name)
+        print("You picked up the %s" % self.name)
 
     def drop(self):
-        if command == 'drop':
-            print("You dropped the %s" % self.name)
+        print("You dropped the %s" % self.name)
 
     def eat(self):
-        if command == 'eat':
-            print("You ate the %s" % self.name)
+        print("You ate the %s" % self.name)
 
     def drink(self):
-        if command == 'drink':
-            print("You drank %s" % self.name)
+        print("You drank the %s" % self.name)
 
     def put_on(self):
-        if command == 'put on':
-            print("You put on the %s" % self.name)
+        print("You put on the %s" % self.name)
 
     def open(self):
-        if command == 'open':
-            print("You open the %s" % self.name)
+        print("You opened the %s" % self.name)
 
 
 class Interactable(object):
@@ -63,20 +68,16 @@ class Interactable(object):
         self.description = description
 
     def move(self):
-        if command == 'move':
-            print("You moved the %s" % self.name)
+        print("You move the %s" % self.name)
 
     def hide(self):
-        if command == 'hide':
-            print("You hid in the locker")
+        print("You hid in the locker.")
 
     def open(self):
-        if command == 'open':
-            print("You opened the %s" % self.name)
+        print("You open the %s" % self.name)
 
     def get_out(self):
-        if command == 'get out':
-            print("You got out of the locker.")
+        print("You got out of the locker.")
 
 
 # Intractable
@@ -389,7 +390,11 @@ class Hero(Character):
         Interactable.open(self.name)
 
     def hide(self, interactable):
-        Interactable.hide(interactable)
+        if hero in locker:
+            Interactable.hide(interactable)
+            print("You hid in the locker")
+        else:
+            print("You are not in a locker.")
 
     def get_out(self):
         if hero in Locker:
@@ -512,30 +517,25 @@ while True:
         hero.drop(hero.location.item)
     elif "open" in command:
         Interactable.open(hero.location.item)
-        if Key in Container:
-            print("The %s is in here." % Key)
-        else:
-            if Key not in Container:
-                print("There's nothing in here.")
+        # if Key in Container:
+        #     print("The %s is in here." % Key)
+        # else:
+        #     if Key not in Container:
+        #         print("There's nothing in here.")
     elif "hide" in command:
         if locker == hero.location.item:
-            Interactable.hide(locker)
+            hide()
         else:
-            print("There's no locker in here.")
-        # if locker in hero.location:
-        #     Interactable.hide(locker)
-        # if locker not in hero.location:
-        #     print("There's no locker in here.")
+            print("There's no locker in this room.")
     elif "get out" in command:
-        if hero.location in locker:
-            Interactable.get_out(locker)
+        print("You are not in a locker.")
     # Change room
     elif command in directions:
         try:
             hero.move(command)
         except KeyError:
             print("You cannot go this way")
-            print("-----------------------------------------------------------")
+            print()
     else:
         print("Command not recognized")
-        print("-----------------------------------------------------------")
+        print()
