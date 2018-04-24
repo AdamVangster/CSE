@@ -352,7 +352,7 @@ class Character(object):
         print("You took damage. A lot of damage.")
 
     def inventory(self):
-        print("Here is your inventory.")
+        print(hero.inventory)
 
 
 class NPC(object):
@@ -378,11 +378,11 @@ class Hero(Character):
         self.location = None
 
     def pick_up(self, item):
-        self.inventory.append(item)
+        self.inventory = item
         print("You pick up the %s" % item.name)
 
     def drop(self, item):
-        self.inventory.remove(item)
+        self.inventory = None
         print("You drop the %s" % item.name)
 
     def open(self, interactable):
@@ -491,12 +491,15 @@ short_directions = ['n', 's', 'e', 'w']
 randomize_container()
 randomize_item_room()
 
+
 while True:
     print(hero.location.name)
     print(hero.location.description)
 
     if hero.location.item is not None:
         print("There is a(n) %s in the room" % hero.location.item.name)
+    else:
+        print("There is no item in here for you to pick up.")
 
     command = input('>_').lower().strip()
 
@@ -512,23 +515,42 @@ while True:
     # if command[:4] == "open":
     #     item = command[5:]
     if "take" in command:
-        hero.pick_up(hero.location.item)
+        if hero.location.item is not None:
+            hero.pick_up(hero.location.item)
+            print()
+            hero.location.item = None
+        else:
+            print("There is no item in the room.")
+            print()
+
     elif "drop" in command:
-        hero.drop(hero.location.item)
+        if hero.inventory is not None:
+            hero.location.item = hero.inventory
+            hero.drop(hero.inventory)
+
+        else:
+            print("You don't have any item in your inventory.")
+        # hero.location.item = hero.inventory
+        # hero.drop(hero.location.item.inventory.remove)
     elif "open" in command:
-        Interactable.open(hero.location.item)
-        # if Key in Container:
-        #     print("The %s is in here." % Key)
-        # else:
-        #     if Key not in Container:
-        #         print("There's nothing in here.")
+        Item.open(hero.location.item)
+        if hero.location.item is not None:
+            print("The %s is in here." % Key)
+        else:
+            print("There is nothing in here.")
     elif "hide" in command:
         if locker == hero.location.item:
             hide()
         else:
             print("There's no locker in this room.")
+            print()
     elif "get out" in command:
         print("You are not in a locker.")
+    elif "inventory" in command:
+        if hero.inventory is not None:
+            print(hero.inventory.name)
+            print()
+
     # Change room
     elif command in directions:
         try:
