@@ -285,23 +285,14 @@ class Container(Item):
     def pick_up(self):
         Item.pick_up(self.name)
 
-    def open(self):
-        Item.open(self.name)
+    def open(self, location):
+        location.item = self.items
 
 
 class Box(Container):
     def __init__(self, name, description, items=None):
         super(Box, self).__init__(name, description)
         self.items = items
-
-    def pick_up(self):
-        Container.pick_up(self.name)
-
-    def drop(self):
-        Container.drop(self.name)
-
-    def open(self):
-        Container.open(self.name)
 
 
 class Backpack(Container):
@@ -312,9 +303,6 @@ class Backpack(Container):
     def pick_up(self):
         Container.pick_up(self.name)
 
-    def open(self):
-        Container.open(self.name)
-
     def drop(self):
         Container.drop(self.name)
 
@@ -323,16 +311,6 @@ class Jar(Container):
     def __init__(self, name, description, items=None):
         super(Jar, self).__init__(name, description)
         self.items = items
-
-    def pick_up(self):
-        Container.pick_up(self.name)
-
-    def drop(self):
-        Container.drop(self.name)
-
-    def open(self):
-        Container.open(self.name)
-
 
 # Character
 class Character(object):
@@ -445,7 +423,7 @@ entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "Th
 empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "livingRm", "This is a empty room with a locker.", locker)
 kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "There's a cabinet that is open.")
 empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "Looks like a empty room.")
-living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallyway", "arcade_rm", "There's a tilted picture frame.")
+living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallway", "arcade_rm", "There's a tilted picture frame.")
 arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.",
                  locker)
 storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "There's a safe inside the storage room.")
@@ -533,11 +511,10 @@ while True:
         # hero.location.item = hero.inventory
         # hero.drop(hero.location.item.inventory.remove)
     elif "open" in command:
-        Item.open(hero.location.item)
-        if hero.location.item is not None:
-            print("The %s is in here." % Key)
+        if isinstance(hero.location.item, Container):
+            hero.location.item.open(hero.location)
         else:
-            print("There is nothing in here.")
+            print("There is nothing to open")
     elif "hide" in command:
         if locker == hero.location.item:
             hide()
@@ -549,6 +526,9 @@ while True:
     elif "inventory" in command:
         if hero.inventory is not None:
             print(hero.inventory.name)
+            print()
+        else:
+            print("You got nothing in your inventory.")
             print()
 
     # Change room
