@@ -312,6 +312,7 @@ class Jar(Container):
         super(Jar, self).__init__(name, description)
         self.items = items
 
+
 # Character
 class Character(object):
     def __init__(self, name, health, inventory, description):
@@ -421,9 +422,10 @@ ghost = Ghost("Tina", "She is satan daughter.")
 # Make Rooms
 entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "The door is behind you is locked.")
 empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "livingRm", "This is a empty room with a locker.", locker)
-kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "There's a cabinet that is open.")
+kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "This is a nice kitchen.")
 empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "Looks like a empty room.")
-living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallway", "arcade_rm", "There's a tilted picture frame.")
+living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallway", "arcade_rm", "There is just"
+                                                                                  "a tilted picture frame.")
 arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.",
                  locker)
 storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "There's a safe inside the storage room.")
@@ -431,10 +433,10 @@ empty_rm3 = Room("Empty Room", "arcade_rm", None, None, None, "There's is 1 lock
 hallway = Room("HallWay", "living_rm", "bedroom1", "bedroom2", None, "There's a lot of scary paints and lockers.",
                locker)
 bedroom1 = Room("BedRoom", None, "bathroom1", "closet1", "hallway", "There's a bed with a desk.")
-bathroom1 = Room("BathRoom", None, None, None, "bedroom1", "This is a small bathroom with a small crack on the wall.")
-closet1 = Room("Closet", "bedroom1", None, None, None, "This closet have a lot of boxes and clothes.")
+bathroom1 = Room("BathRoom", None, None, None, "bedroom1", "Just a small bedroom.")
+closet1 = Room("Closet", "bedroom1", None, None, None, "This closet have a lot of boxes and clothes.", box)
 bedroom2 = Room("BedRoom", "hallway", None, "bathroom2", "closet2", "This is a normal bedroom with a locker.", locker)
-closet2 = Room("Closet", None, "bedroom2", None, None, "This closet have a lot of boxes and clothes.")
+closet2 = Room("Closet", None, "bedroom2", None, None, "This closet have a lot of boxes and clothes.", box)
 bathroom2 = Room("Bathroom", "bedroom2", None, None, None, "The bathroom have creepy painting.")
 
 
@@ -462,8 +464,15 @@ def randomize_item_room():
         room.item = item
         list_of_rooms.remove(room)
 
+def randomize_room():
+    list_of_room = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm, hallway,
+                    bedroom1, bedroom2, bathroom1, bathroom2, closet1, closet2]
+    rr1 = random.randint(1, 15)
+    rr2 = random.randint(list_of_room)
+    random_room = rr1 + rr2
 
 hero.location = entrance
+ghost.location = bedroom2
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 randomize_container()
@@ -473,6 +482,7 @@ randomize_item_room()
 while True:
     print(hero.location.name)
     print(hero.location.description)
+    print("The ghost is at the %s" % ghost.location.name)
 
     if hero.location.item is not None:
         print("There is a(n) %s in the room" % hero.location.item.name)
@@ -530,7 +540,6 @@ while True:
         else:
             print("You got nothing in your inventory.")
             print()
-
     # Change room
     elif command in directions:
         try:
