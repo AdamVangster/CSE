@@ -1,7 +1,10 @@
 import time
 import random
+import winsound
 time_delay_short = .2  # default is 2
 time_delay_long = .3  # Default is 3
+
+# winsound
 
 Instruction = {
     print('Welcome to Escape The House'),
@@ -315,11 +318,12 @@ class Jar(Container):
 
 # Character
 class Character(object):
-    def __init__(self, name, health, inventory, description):
+    def __init__(self, name, health, inventory, description, location=None):
         self.name = name
         self.health = health
         self.inventory = inventory
         self.description = description
+        self.location = location
 
     def description(self):
         print("%s" % self.description)
@@ -333,6 +337,13 @@ class Character(object):
     def inventory(self):
         print(hero.inventory)
 
+    def move(self,direction):
+        self.location.character.remove(self)
+        try:
+            self.location = globals()[getattr(self.location, direction)]
+        except KeyError:
+            pass
+        self.location.character.append(self)
 
 class NPC(object):
     def __init__(self, name, description):
@@ -343,17 +354,17 @@ class NPC(object):
         print("The ghost killed you.")
 
 
-class Ghost(NPC):
+class Ghost(Character):
     def __init__(self, name, description):
-        super(Ghost, self).__init__(name, description)
+        super(Ghost, self).__init__(name, None,  None, description)
 
     def attack(self):
         print("The ghost killed you")
 
 
 class Hero(Character):
-    def __init__(self, name, health, inventory, description):
-        super(Hero, self).__init__(name, health, inventory, description)
+    def __init__(self, name, health, inventory, description, location=None):
+        super(Hero, self).__init__(name, health, inventory, description, location)
         self.location = None
 
     def pick_up(self, item):
@@ -383,9 +394,13 @@ class Hero(Character):
     def health(self):
         print("You only have 1 health.")
 
-    def move(self, direction):
-        self.location = globals()[getattr(self.location, direction)]
+    # def move(self, direction):
+    #     self.location = globals()[getattr(self.location, direction)]
 
+    # def move(self, direction):
+    #     try:
+    #         self.location = globals()[getattr(self.location, direction)]
+    #         print(per)
 
 # Rooms
 class Room(object):
@@ -397,6 +412,7 @@ class Room(object):
         self.west = west
         self.description = description
         self.item = item
+        self.character = []
 
 
 # Make Item
@@ -419,7 +435,18 @@ padlock = PadLock("PadLock", "You can open this lock with a lock key.")
 hero = Hero("Dashie", 1, [], "You are T H I C C and you don't have aim.")
 ghost = Ghost("Tina", "She is satan daughter.")
 
-# Make Rooms
+def move_monster():
+    for ghost in monster:
+        rand_direction = random.choice(directions)
+        try:
+            ghost.move(rand_direction)
+        except ValueError:
+            print(ghost.name)
+            print(ghost.location.name)
+            print(rand_direction)
+            quit(2)
+
+
 entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "The door is behind you is locked.")
 empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "livingRm", "This is a empty room with a locker.", locker)
 kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "This is a nice kitchen.")
@@ -457,32 +484,35 @@ def randomize_container():
 
 def randomize_item_room():
     list_of_items = [backpack, jar, drawer, box]
-    list_of_rooms = [storage_rm, arcade_rm, empty_rm2, bedroom1, closet2, living_rm, closet1, kitchen,
-                     empty_rm1, empty_rm3]
+    list_of_rooms = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+                     hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
     for item in list_of_items:
         room = random.choice(list_of_rooms)
         room.item = item
         list_of_rooms.remove(room)
 
-def randomize_room():
-    list_of_room = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm, hallway,
-                    bedroom1, bedroom2, bathroom1, bathroom2, closet1, closet2]
-    rr1 = random.randint(1, 15)
-    rr2 = random.randint(list_of_room)
-    random_room = rr1 + rr2
 
 hero.location = entrance
-ghost.location = bedroom2
+
+list_of_room2 = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+                hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
+
+def place_monster():
+    for ghost in list_of_room2:
+        room = random.choice(list_of_room2)
+        ghost.location = room
+        room.character.append(ghost)
+
+monster = [ghost]
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 randomize_container()
 randomize_item_room()
-
+place_monster()
 
 while True:
     print(hero.location.name)
     print(hero.location.description)
-    print("The ghost is at the %s" % ghost.location.name)
 
     if hero.location.item is not None:
         print("There is a(n) %s in the room" % hero.location.item.name)
@@ -490,12 +520,15 @@ while True:
         print("There is no item in here for you to pick up.")
 
     command = input('>_').lower().strip()
-
+    if hero.location.character is not None:
+        for character in hero.location.character:
+            print(character.name)
     if command == 'quit':
         quit(0)
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
+
 
     # Items
     # if command[:7] == "pick up":
@@ -541,12 +574,13 @@ while True:
             print("You got nothing in your inventory.")
             print()
     # Change room
-    elif command in directions:
-        try:
-            hero.move(command)
-        except KeyError:
-            print("You cannot go this way")
-            print()
+    # elif command in directions:
+    #     try:
+    #         hero.move(command)
+    #     except KeyError:
+    #         print("You cannot go this way")
+    #         print()
     else:
         print("Command not recognized")
         print()
+    move_monster()
