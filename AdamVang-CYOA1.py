@@ -1,51 +1,48 @@
 import time
 import random
+import winsound
 
-# time_delay_short = .2  # default is 2
-# time_delay_long = .3  # Default is 3
-#
-#
-# Instruction = {
-#     print('Welcome to Escape The House'),
-#     time.sleep(time_delay_short),
-#     print("You was trick into a haunted house by bullies."),
-#     print("There is a ghost in the house that will get closer"),
-#     print("to you each time you make a move."),
-#     time.sleep(time_delay_long),
-#     print("There are multiple items to find and puzzle to solve to"),
-#     print("get the key to open the lock in the front door"),
-#     time.sleep(time_delay_long),
-#     print("There are lockers all around where you can"),
-#     print("hide in so you won't get caught by the ghost."),
-#     time.sleep(time_delay_long),
-#     print("When the ghost is close to you, you have a"),
-#     print("weird sense of feeling in the air."),
-#     print("At that moment, you should HIDE in one of the locker."),
-#     time.sleep(time_delay_short),
-#     print("Good Luck")
-# }
+time_delay_short = .2  # default is 2
+time_delay_long = .3  # Default is 3
+
+winsound.PlaySound('sound.wave', winsound.SND_FILENAME)
+
+
+Instruction = {
+    print('Welcome to Escape The House'),
+    time.sleep(time_delay_short),
+    print("You was trick into a haunted house by bullies."),
+    print("There is a ghost in the house that will get closer"),
+    print("to you each time you make a move."),
+    time.sleep(time_delay_long),
+    print("There are multiple items to find and puzzle to solve to"),
+    print("get the key to open the lock in the front door"),
+    time.sleep(time_delay_long),
+    print("There are lockers all around where you can"),
+    print("hide in so you won't get caught by the ghost."),
+    time.sleep(time_delay_long),
+    print("When the ghost is close to you, you have a"),
+    print("weird sense of feeling in the air."),
+    print("At that moment, you should HIDE in one of the locker."),
+    time.sleep(time_delay_short),
+    print("Good Luck")
+}
 
 print()
 
-To_Do_List = {
-    print('Find a weapon and kill'),
-    print('the ghost until she find you.'),
-    print('Kill her before she kills you.')
-}
 
-print('------------------------------------')
+def hide():
+    Interactable.hide(locker)
+    move_monster()
+    print(ghost.location.name)
+    print()
+    cmd = ""
+    while cmd != "get out":
+        cmd = input(">_ ")
+        if cmd == "get out":
+            Interactable.get_out(locker)
+    print()
 
-# def hide():
-#     Interactable.hide(locker)
-#     print()
-#     cmd = ""
-#     while cmd != "get out":
-#         cmd = input(">_ ")
-#         if cmd == "get out":
-#             Interactable.get_out(locker)
-#     print()
-#     move_monster()
-#     print("The ghost is at the %s " % ghost.location.name)
 
 # Items
 class Item(object):
@@ -89,45 +86,6 @@ class Interactable(object):
     def get_out(self):
         print("You got out of the locker.")
 
-class Weapon(Item):
-    def __init__(self, name, description):
-        super(Weapon, self).__init__(name, description)
-
-    def pick_up(self):
-        print('You picked up the %s.' % self.name)
-
-    def drop(self):
-        print('You dropped the %s.' % self.name)
-
-class knife(Weapon):
-    def __init__(self, name, description):
-        super(knife, self).__init__(name, description)
-
-    def pick_up(self):
-        print('You picked up the %s' % self.name)
-
-    def drop(self):
-        print('You dropped the %s.' % self.name)
-
-class sword(Weapon):
-    def __init__(self, name, description):
-        super(sword, self).__init__(name, description)
-
-    def pick_up(self):
-        print('You picked up the %s' % self.name)
-
-    def drop(self):
-        print("You dropped the %s" % self.name)
-
-class blades(Weapon):
-    def __init__(self, name, description):
-        super(blades, self).__init__(name, description)
-
-    def pick_up(self):
-        print("You picked up the %s." % self.name)
-
-    def drop(self):
-        print("You dropped the %s" % self.name)
 
 # Intractable
 class Locker(Interactable):
@@ -431,12 +389,12 @@ class Hero(Character):
         Item.open(self.name)
         Interactable.open(self.name)
 
-    # def hide(self, interactable):
-    #     if hero in locker:
-    #         Interactable.hide(interactable)
-    #         print("You hid in the locker")
-    #     else:
-    #         print("You are not in a locker.")
+    def hide(self, interactable):
+        if hero in locker:
+            Interactable.hide(interactable)
+            print("You hid in the locker")
+        else:
+            print("You are not in a locker.")
 
     def get_out(self):
         if hero in Locker:
@@ -448,11 +406,6 @@ class Hero(Character):
 
     def move(self, direction):
         self.location = globals()[getattr(self.location, direction)]
-
-    def attack(self):
-        print("You killed the ghost.")
-        print("Good Game xD")
-        quit(0)
 
     """
     We want the hero to move normally, but we want all other characters to add them to the list of character per room
@@ -475,23 +428,20 @@ class Room(object):
 
 
 # Make Item
-# lock_key = LockKey("Lock Key", "This key is use to open the lock on the front door.")
-# safe_key = SafeKey("Safe Key", "This key is use to open a safe.")
-# storage_key = StorageKey("Storage Key", "You can the lock on the door at the storage key.")
-# jar = Jar("Jar", "Looks like you can throw this.")
-# backpack = Backpack("Backpack", "You can carry the backpack but it's useless.", lock_key)
-# box = Box("Box", "There's nothing in the box, you can move them.")
-# mask = Mask("Mask", "You can wear this mask to make your self looks cool.")
-# clothes = Clothes("Clothes", "You can wear these clothes to make you looks good.")
-# water_bottle = WaterBottle("Watter Bottle", "Still looks drinkable.")
-# pizza = Pizza("Pizza", "This pizza still looks eatable.")
-# locker = Locker("Locker", "You can hide in it.")
-# drawer = Drawer("A Desk Drawer", "There could be item in this.")
-# safe = Safe("Safe", "You can open this with a safe key.")
-# padlock = PadLock("PadLock", "You can open this lock with a lock key.")
-mini_knife = knife("Knife", 'This is just a regular kitchen knife.')
-Ryu_ichimonji = sword("Ryū ichimonji", 'This sword belongs to genji. How did it end up here?')
-Blades_Of_Chaos = blades("Blades of Chaos", 'These weapon was given by the god of war... Aries...')
+lock_key = LockKey("Lock Key", "This key is use to open the lock on the front door.")
+safe_key = SafeKey("Safe Key", "This key is use to open a safe.")
+storage_key = StorageKey("Storage Key", "You can the lock on the door at the storage key.")
+jar = Jar("Jar", "Looks like you can throw this.")
+backpack = Backpack("Backpack", "You can carry the backpack but it's useless.", lock_key)
+box = Box("Box", "There's nothing in the box, you can move them.")
+mask = Mask("Mask", "You can wear this mask to make your self looks cool.")
+clothes = Clothes("Clothes", "You can wear these clothes to make you looks good.")
+water_bottle = WaterBottle("Watter Bottle", "Still looks drinkable.")
+pizza = Pizza("Pizza", "This pizza still looks eatable.")
+locker = Locker("Locker", "You can hide in it.")
+drawer = Drawer("A Desk Drawer", "There could be item in this.")
+safe = Safe("Safe", "You can open this with a safe key.")
+padlock = PadLock("PadLock", "You can open this lock with a lock key.")
 
 # Make Characters
 hero = Hero("Dashie", 1, [], "You are T H I C C and you don't have aim.")
@@ -499,40 +449,42 @@ ghost = Ghost("Tina", "She is satan daughter.")
 
 
 entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "The door is behind you is locked.")
-empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "livingRm", "This is a empty room with a locker.")
+empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "living_rm", "This is a empty room with a locker.", locker)
 kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "This is a nice kitchen.")
 empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "Looks like a empty room.")
 living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallway", "arcade_rm", "There is just"
                                                                                   "a tilted picture frame.")
-arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.")
+arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.",
+                 locker)
 storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "There's a safe inside the storage room.")
-empty_rm3 = Room("Empty Room", "arcade_rm", None, None, None, "There's is 1 locker in this room.")
-hallway = Room("HallWay", "living_rm", "bedroom1", "bedroom2", None, "There's a lot of scary paints and lockers.")
+empty_rm3 = Room("Empty Room", "arcade_rm", None, None, None, "There's is 1 locker in this room.", locker)
+hallway = Room("HallWay", "living_rm", "bedroom1", "bedroom2", None, "There's a lot of scary paints and lockers.",
+               locker)
 bedroom1 = Room("BedRoom", None, "bathroom1", "closet1", "hallway", "There's a bed with a desk.")
 bathroom1 = Room("BathRoom", None, None, None, "bedroom1", "Just a small bedroom.")
-closet1 = Room("Closet", "bedroom1", None, None, None, "This closet have a lot of boxes and clothes.")
-bedroom2 = Room("BedRoom", "hallway", None, "bathroom2", "closet2", "This is a normal bedroom with a locker.")
-closet2 = Room("Closet", None, "bedroom2", None, None, "This closet have a lot of boxes and clothes.")
+closet1 = Room("Closet", "bedroom1", None, None, None, "This closet have a lot of boxes and clothes.", box)
+bedroom2 = Room("BedRoom", "hallway", None, "bathroom2", "closet2", "This is a normal bedroom with a locker.", locker)
+closet2 = Room("Closet", None, "bedroom2", None, None, "This closet have a lot of boxes and clothes.", box)
 bathroom2 = Room("Bathroom", "bedroom2", None, None, None, "The bathroom have creepy painting.")
 
 
-# def randomize_container():
-#     list_of_keys = [storage_key, lock_key, safe_key]
-#     list_of_containers = [backpack, jar, box, drawer, safe]
-#     for key in list_of_keys:
-#         picked = False
-#         container = None
-#         while not picked or container is None:
-#             container = random.choice(list_of_containers)
-#             if key in [safe_key, storage_key] and container == safe:
-#                 pass
-#             else:
-#                 picked = True
-#         container.items = key
+def randomize_container():
+    list_of_keys = [storage_key, lock_key, safe_key]
+    list_of_containers = [backpack, jar, box, drawer, safe]
+    for key in list_of_keys:
+        picked = False
+        container = None
+        while not picked or container is None:
+            container = random.choice(list_of_containers)
+            if key in [safe_key, storage_key] and container == safe:
+                pass
+            else:
+                picked = True
+        container.items = key
 
 
 def randomize_item_room():
-    list_of_items = [mini_knife, Blades_Of_Chaos, Ryu_ichimonji]
+    list_of_items = [backpack, jar, drawer, box]
     list_of_rooms = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
                      hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
     for item in list_of_items:
@@ -543,7 +495,7 @@ def randomize_item_room():
 
 hero.location = entrance
 
-list_of_room2 = [empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+list_of_room2 = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
                 hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
 
 #
@@ -557,7 +509,7 @@ list_of_room2 = [empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm,
 monster = [ghost]
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
-# randomize_container()
+randomize_container()
 randomize_item_room()
 
 
@@ -584,7 +536,7 @@ place_monster()
 print(ghost.location.name)
 
 while True:
-    print("You are at the %s" % hero.location.name)
+    print("You are in the %s" % hero.location.name)
     print(hero.location.description)
     
     if hero.location.item is not None:
@@ -592,24 +544,20 @@ while True:
     else:
         print("There is no item in here for you to pick up.")
         print()
-
-    if hero.inventory is not None:
-        hero.attack()
-    else:
-        print("You need a weapon to attack.")
-
+        
     if len(hero.location.character) > 0:  # If there are characters in the room. This assumes an empty room has a length of 0.
         print("There are the following characters in the room:")
         for char in hero.location.character:
             print(char.name)  # Print each character's name
+            print("You died.")
+            quit(0)
 
-    if hero.inventory is None:
-        print("You died.")
-        quit(0)
-    else:
-        hero.attack()
-        print("You killed the ghost.")
-        print("Good Job")
+    for lock_key in hero.inventory:
+        if lock_key in hero.inventory:
+            print('You won.')
+            print('You got out of the house.')
+            print('Good Job')
+            quit(0)
 
     command = input('>_').lower().strip()
     if hero.location.character is not None:
@@ -626,12 +574,6 @@ while True:
     #     item = command[8:]
     # if command[:4] == "open":
     #     item = command[5:]
-
-    if ghost in hero.location:
-        if 'attack' in command:
-            hero.attack()
-        else:
-            print("She's ain't here.")
 
     if "take" in command:
         if hero.location.item is not None:
@@ -656,14 +598,14 @@ while True:
             hero.location.item.open(hero.location)
         else:
             print("There is nothing to open")
-    # elif "hide" in command:
-    #     if locker == hero.location.item:
-    #         hide()
-    #     else:
-    #         print("There's no locker in this room.")
-    #         print()
-    # elif "get out" in command:
-    #     print("You are not in a locker.")
+    elif "hide" in command:
+        if locker == hero.location.item:
+            hide()
+        else:
+            print("There's no locker in this room.")
+            print()
+    elif "get out" in command:
+        print("You are not in a locker.")
     elif "inventory" in command:
         if hero.inventory is not None:
             print(hero.inventory.name)

@@ -50,8 +50,8 @@
       <file leaf-file-name="AdamVang - Characters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdamVang - Characters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+            <state relative-caret-position="578">
+              <caret line="34" column="54" lean-forward="false" selection-start-line="34" selection-start-column="54" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,14 +77,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdamVang-CYOA.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdamVang-CYOA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdamVang-CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="441" column="0" lean-forward="false" selection-start-line="441" selection-start-column="0" selection-end-line="441" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="608" column="9" lean-forward="false" selection-start-line="608" selection-start-column="9" selection-end-line="608" selection-end-column="9" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#144#975#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdamVang-CYOA1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="552" column="19" lean-forward="true" selection-start-line="552" selection-start-column="19" selection-end-line="552" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#191#1022#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -94,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/AdamVang-Lucky7's.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+              <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -133,6 +145,10 @@
     <findStrings>
       <find>locker</find>
       <find>Container</find>
+      <find>list</find>
+      <find>monst</find>
+      <find>Hall</find>
+      <find>ghost</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,10 +174,11 @@
         <option value="$PROJECT_DIR$/AdamVang - Items.py" />
         <option value="$PROJECT_DIR$/AdamVang - Characters.py" />
         <option value="$PROJECT_DIR$/AdamVang-CYOA.py" />
+        <option value="$PROJECT_DIR$/AdamVang-CYOA1.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1346" />
@@ -207,7 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AdamVang-CYOA">
+  <component name="RunManager" selected="Python.AdamVang-CYOA1">
     <configuration name="AdamVang - Characters" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -276,7 +293,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="AdamVang_WorldMap" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="AdamVang-CYOA1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -288,25 +305,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdamVang_WorldMap.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdamVang-CYOA1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.AdamVang - WorldMap OOP" />
-      <item index="1" class="java.lang.String" itemvalue="Python.AdamVang_WorldMap" />
-      <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
-      <item index="3" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
-      <item index="4" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
+      <item index="1" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
+      <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
+      <item index="3" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
+      <item index="4" class="java.lang.String" itemvalue="Python.AdamVang-CYOA1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
-        <item index="1" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
-        <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
-        <item index="3" class="java.lang.String" itemvalue="Python.AdamVang - WorldMap OOP" />
-        <item index="4" class="java.lang.String" itemvalue="Python.AdamVang_WorldMap" />
+        <item index="0" class="java.lang.String" itemvalue="Python.AdamVang-CYOA1" />
+        <item index="1" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
+        <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
+        <item index="3" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
+        <item index="4" class="java.lang.String" itemvalue="Python.AdamVang - WorldMap OOP" />
       </list>
     </recent_temporary>
   </component>
@@ -327,15 +344,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22986823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43423137" sideWeight="0.5146413" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43423137" sideWeight="0.51756954" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43423137" sideWeight="0.48535872" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43423137" sideWeight="0.48243046" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -360,13 +377,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="132" column="1" lean-forward="false" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Warmups.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -664,6 +674,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AdamVang - WorldMap OOP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdamVang - Characters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="54" lean-forward="false" selection-start-line="34" selection-start-column="54" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Class Notes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
@@ -680,37 +706,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdamVang - Characters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AdamVang - WorldMap OOP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-Lucky7's.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="441" column="0" lean-forward="false" selection-start-line="441" selection-start-column="0" selection-end-line="441" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="608" column="9" lean-forward="false" selection-start-line="608" selection-start-column="9" selection-end-line="608" selection-end-column="9" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#144#975#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="552" column="19" lean-forward="true" selection-start-line="552" selection-start-column="19" selection-end-line="552" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#191#1022#0" expanded="false" />
           </folding>
         </state>
       </provider>
