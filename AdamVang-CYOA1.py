@@ -1,7 +1,7 @@
 import time
 import random
 import winsound
-
+inventory = []
 time_delay_short = .2  # default is 2
 time_delay_long = .3  # Default is 3
 
@@ -28,20 +28,20 @@ Instruction = {
     print("Good Luck")
 }
 
-print()
+print("---")
 
 
 def hide():
-    Interactable.hide(locker)
     move_monster()
-    print(ghost.location.name)
-    print()
+    Interactable.hide(locker)
+    print("The ghost is at the %s" % ghost.location.name)
+    print("Type 'get out' to get out.")
     cmd = ""
     while cmd != "get out":
         cmd = input(">_ ")
         if cmd == "get out":
             Interactable.get_out(locker)
-    print()
+    print("---")
 
 
 # Items
@@ -449,14 +449,14 @@ ghost = Ghost("Tina", "She is satan daughter.")
 
 
 entrance = Room("Entrance of House", None, None, "Locked Door", "empty_rm1", "The door is behind you is locked.")
-empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "living_rm", "This is a empty room with a locker.", locker)
+empty_rm1 = Room("Empty Room", "kitchen", "entrance", None, "living_rm", "Just a empty room.", locker)
 kitchen = Room("Kitchen", None, None, "empty_rm1", "empty_rm2", "This is a nice kitchen.")
 empty_rm2 = Room("Empty Room", None, "kitchen", "living_rm", None, "Looks like a empty room.")
 living_rm = Room("Living Room", "empty_rm2", "empty_rm1", "hallway", "arcade_rm", "There is just"
                                                                                   "a tilted picture frame.")
 arcade_rm = Room("Arcade Room", "storage_rm", "living_rm", "empty_rm3", None, "There's a lot of lockers and games.",
                  locker)
-storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "There's a safe inside the storage room.")
+storage_rm = Room("Storage Room", None, None, "arcade_rm", None, "")
 empty_rm3 = Room("Empty Room", "arcade_rm", None, None, None, "There's is 1 locker in this room.", locker)
 hallway = Room("HallWay", "living_rm", "bedroom1", "bedroom2", None, "There's a lot of scary paints and lockers.",
                locker)
@@ -495,7 +495,7 @@ def randomize_item_room():
 
 hero.location = entrance
 
-list_of_room2 = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+list_of_room2 = [empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
                 hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
 
 #
@@ -533,17 +533,20 @@ def move_monster():
 
 # ghost.location = list_of_room2
 place_monster()
-print(ghost.location.name)
+# print(ghost.location.name)
+# print("---")
 
 while True:
     print("You are in the %s" % hero.location.name)
+    print("The ghost is at the %s" % ghost.location.name)
     print(hero.location.description)
     
     if hero.location.item is not None:
         print("There is a(n) %s in the room" % hero.location.item.name)
+        print("---")
     else:
         print("There is no item in here for you to pick up.")
-        print()
+        print("---")
         
     if len(hero.location.character) > 0:  # If there are characters in the room. This assumes an empty room has a length of 0.
         print("There are the following characters in the room:")
@@ -552,12 +555,12 @@ while True:
             print("You died.")
             quit(0)
 
-    for lock_key in hero.inventory:
-        if lock_key in hero.inventory:
-            print('You won.')
-            print('You got out of the house.')
-            print('Good Job')
-            quit(0)
+    for lock_key in inventory:
+        if inventory or hero.inventory is not None:
+           print('You won.')
+           print('You got out of the house.')
+           print('Good Job')
+           quit(0)
 
     command = input('>_').lower().strip()
     if hero.location.character is not None:
@@ -578,11 +581,12 @@ while True:
     if "take" in command:
         if hero.location.item is not None:
             hero.pick_up(hero.location.item)
-            print()
+            print("---")
             hero.location.item = None
+            inventory.append(hero.location.item)
         else:
             print("There is no item in the room.")
-            print()
+            print("---")
 
     elif "drop" in command:
         if hero.inventory is not None:
@@ -603,26 +607,26 @@ while True:
             hide()
         else:
             print("There's no locker in this room.")
-            print()
+            print("---")
     elif "get out" in command:
         print("You are not in a locker.")
     elif "inventory" in command:
         if hero.inventory is not None:
             print(hero.inventory.name)
-            print()
+            print("---")
         else:
             print("You got nothing in your inventory.")
-            print()
+            print("---")
     # Change room
     elif command in directions:
         try:
             hero.move(command)
         except KeyError:
             print("You cannot go this way")
-            print()
+            print("---")
     else:
         print("Command not recognized")
-        print()
+        print("---")
     move_monster()
     print("The ghost is at the %s " % ghost.location.name)
 
