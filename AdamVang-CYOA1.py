@@ -8,24 +8,37 @@ time_delay_long = .3  # Default is 3
 winsound.PlaySound('sound.wave', winsound.SND_FILENAME)
 
 
-Instruction = {
-    print('Welcome to Escape The House'),
+# Instruction = {
+#     print('Welcome to Escape The House'),
+#     time.sleep(time_delay_short),
+#     print("You was trick into a haunted house by bullies."),
+#     print("There is a ghost in the house that will get closer"),
+#     print("to you each time you make a move."),
+#     time.sleep(time_delay_long),
+#     print("There are multiple items to find and puzzle to solve to"),
+#     print("get the key to open the lock in the front door"),
+#     time.sleep(time_delay_long),
+#     print("There are lockers all around where you can"),
+#     print("hide in so you won't get caught by the ghost."),
+#     time.sleep(time_delay_long),
+#     print("When the ghost is close to you, you have a"),
+#     print("weird sense of feeling in the air."),
+#     print("At that moment, you should HIDE in one of the locker."),
+#     time.sleep(time_delay_short),
+#     print("Good Luck")
+# }
+
+Instructions = {
+    print("Welcome to Find The Key."),
     time.sleep(time_delay_short),
-    print("You was trick into a haunted house by bullies."),
-    print("There is a ghost in the house that will get closer"),
-    print("to you each time you make a move."),
+    print('The point of the game is to find the lock key.'),
+    print('Once you find the lock key'),
+    print('you will win automatically.'),
     time.sleep(time_delay_long),
-    print("There are multiple items to find and puzzle to solve to"),
-    print("get the key to open the lock in the front door"),
-    time.sleep(time_delay_long),
-    print("There are lockers all around where you can"),
-    print("hide in so you won't get caught by the ghost."),
-    time.sleep(time_delay_long),
-    print("When the ghost is close to you, you have a"),
-    print("weird sense of feeling in the air."),
-    print("At that moment, you should HIDE in one of the locker."),
-    time.sleep(time_delay_short),
-    print("Good Luck")
+    print('There will be a ghost that will try to kill you.'),
+    print('Once you and her are in a room together,'),
+    print('you will die.'),
+    time.sleep(time_delay_short)
 }
 
 print("---")
@@ -114,12 +127,6 @@ class Safe(Interactable):
 
     def open(self):
         Interactable.open(self.name)
-
-
-class Drawer(Interactable):
-    def __init__(self, name, description, items=None):
-        super(Drawer, self).__init__(name, description)
-        self.items = items
 
     def open(self):
         Interactable.open(self.name)
@@ -319,6 +326,11 @@ class Jar(Container):
         super(Jar, self).__init__(name, description)
         self.items = items
 
+class Drawer(Container):
+    def __init__(self, name, description, items=None):
+        super(Drawer, self).__init__(name, description)
+        self.items = items
+
 
 # Character
 class Character(object):
@@ -469,7 +481,7 @@ bathroom2 = Room("Bathroom", "bedroom2", None, None, None, "The bathroom have cr
 
 
 def randomize_container():
-    list_of_keys = [storage_key, lock_key, safe_key]
+    list_of_keys = [lock_key]
     list_of_containers = [backpack, jar, box, drawer, safe]
     for key in list_of_keys:
         picked = False
@@ -484,8 +496,8 @@ def randomize_container():
 
 
 def randomize_item_room():
-    list_of_items = [backpack, jar, drawer, box]
-    list_of_rooms = [entrance, empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+    list_of_items = [backpack, jar, drawer, box, drawer]
+    list_of_rooms = [empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
                      hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
     for item in list_of_items:
         room = random.choice(list_of_rooms)
@@ -495,7 +507,7 @@ def randomize_item_room():
 
 hero.location = entrance
 
-list_of_room2 = [empty_rm1, empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
+list_of_room2 = [empty_rm2, empty_rm3, kitchen, living_rm, arcade_rm, storage_rm,
                 hallway, bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
 
 #
@@ -518,7 +530,8 @@ def place_monster():
         room = random.choice(list_of_room2)
         ghost.location = room
         room.character.append(ghost)
-#
+
+
 def move_monster():
     for char in monster:
         rand_direction = random.choice(directions)
@@ -595,6 +608,7 @@ while True:
 
         else:
             print("You don't have any item in your inventory.")
+            print("---")
         # hero.location.item = hero.inventory
         # hero.drop(hero.location.item.inventory.remove)
     elif "open" in command:
@@ -602,6 +616,10 @@ while True:
             hero.location.item.open(hero.location)
         else:
             print("There is nothing to open")
+            print("---")
+        if "open" in command and hero.location.item is None:
+            print("There was nothing in the %s" % hero.location.item.name)
+            print("---")
     elif "hide" in command:
         if locker == hero.location.item:
             hide()

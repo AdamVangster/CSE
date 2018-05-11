@@ -80,7 +80,7 @@
       <file leaf-file-name="AdamVang-CYOA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdamVang-CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="10319">
               <caret line="608" column="9" lean-forward="false" selection-start-line="608" selection-start-column="9" selection-end-line="608" selection-end-column="9" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -92,11 +92,11 @@
       <file leaf-file-name="AdamVang-CYOA1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="559" column="28" lean-forward="true" selection-start-line="559" selection-start-column="28" selection-end-line="559" selection-end-column="28" />
+            <state relative-caret-position="191">
+              <caret line="623" column="40" lean-forward="true" selection-start-line="623" selection-start-column="40" selection-end-line="623" selection-end-column="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#205#1036#0" expanded="false" />
+                <element signature="e#191#208#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -715,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="10319">
           <caret line="608" column="9" lean-forward="false" selection-start-line="608" selection-start-column="9" selection-end-line="608" selection-end-column="9" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -725,11 +725,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="559" column="28" lean-forward="true" selection-start-line="559" selection-start-column="28" selection-end-line="559" selection-end-column="28" />
+        <state relative-caret-position="191">
+          <caret line="623" column="40" lean-forward="true" selection-start-line="623" selection-start-column="40" selection-end-line="623" selection-end-column="40" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#205#1036#0" expanded="false" />
+            <element signature="e#191#208#0" expanded="false" />
           </folding>
         </state>
       </provider>
