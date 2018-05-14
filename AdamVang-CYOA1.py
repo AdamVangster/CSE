@@ -611,15 +611,20 @@ while True:
             print("---")
         # hero.location.item = hero.inventory
         # hero.drop(hero.location.item.inventory.remove)
-    elif "open" in command:
+    elif "open" in command and hero.location.item is not None:
         if isinstance(hero.location.item, Container):
             hero.location.item.open(hero.location)
+            print("You opened the %s" % hero.location.item, Container)
+            print("---")
         else:
-            print("There is nothing to open")
-            print("---")
-        if "open" in command and hero.location.item is None:
-            print("There was nothing in the %s" % hero.location.item.name)
-            print("---")
+            if hero.location.item is None:
+                print("There was nothing in the %s" % hero.location.item.name)
+                print("---")
+        #     print("There is nothing to open")
+        #     print("---")
+        # if "open" in command and hero.location.item is None:
+        #     print("There was nothing in the %s" % hero.location.item.name)
+        #     print("---")
     elif "hide" in command:
         if locker == hero.location.item:
             hide()
