@@ -14,7 +14,7 @@
       <file leaf-file-name="AdamVang_WorldMap.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdamVang_WorldMap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="272">
               <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
               <folding>
                 <element signature="e#26#739#0" expanded="false" />
@@ -60,8 +60,8 @@
       <file leaf-file-name="Class Notes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Class Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="188">
+              <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,7 +70,7 @@
       <file leaf-file-name="AdamVang - Items.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdamVang - Items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
+            <state relative-caret-position="3179">
               <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
@@ -92,11 +92,40 @@
       <file leaf-file-name="AdamVang-CYOA1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2219">
-              <caret line="620" column="53" lean-forward="false" selection-start-line="620" selection-start-column="53" selection-end-line="620" selection-end-column="53" />
+            <state relative-caret-position="-1082">
+              <caret line="568" column="16" lean-forward="false" selection-start-line="568" selection-start-column="16" selection-end-line="568" selection-end-column="16" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#191#208#0" expanded="false" />
+                <element signature="e#1091#1523#0" expanded="false" />
+                <element signature="e#1536#1788#0" expanded="false" />
+                <element signature="e#1807#2074#0" expanded="false" />
+                <element signature="e#2101#2548#0" expanded="false" />
+                <element signature="e#2583#2949#0" expanded="false" />
+                <element signature="e#2995#3208#0" expanded="false" />
+                <element signature="e#3244#3397#0" expanded="false" />
+                <element signature="e#3430#3619#0" expanded="false" />
+                <element signature="e#3657#3816#0" expanded="false" />
+                <element signature="e#3859#4060#0" expanded="false" />
+                <element signature="e#4093#4291#0" expanded="false" />
+                <element signature="e#4318#4568#0" expanded="false" />
+                <element signature="e#4595#4845#0" expanded="false" />
+                <element signature="e#4875#5444#0" expanded="false" />
+                <element signature="e#5485#5631#0" expanded="false" />
+                <element signature="e#5663#5909#0" expanded="false" />
+                <element signature="e#5947#6206#0" expanded="false" />
+                <element signature="e#6243#6498#0" expanded="false" />
+                <element signature="e#6530#6785#0" expanded="false" />
+                <element signature="e#6814#7069#0" expanded="false" />
+                <element signature="e#7109#7367#0" expanded="false" />
+                <element signature="e#7396#7526#0" expanded="false" />
+                <element signature="e#7560#7811#0" expanded="false" />
+                <element signature="e#7840#7970#0" expanded="false" />
+                <element signature="e#8002#8138#0" expanded="false" />
+                <element signature="e#8179#8858#0" expanded="false" />
+                <element signature="e#8884#8986#0" expanded="false" />
+                <element signature="e#9017#9283#0" expanded="false" />
+                <element signature="e#9313#10217#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -158,17 +187,17 @@
         <option value="$PROJECT_DIR$/AdamVang_WorldMap.py" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/Code Testing (OBJECT).py" />
-        <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/Program.py" />
         <option value="$PROJECT_DIR$/AdamVang - WorldMap OOP.py" />
         <option value="$PROJECT_DIR$/AdamVang - Items.py" />
         <option value="$PROJECT_DIR$/AdamVang - Characters.py" />
         <option value="$PROJECT_DIR$/AdamVang-CYOA.py" />
+        <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/AdamVang-CYOA1.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1346" />
@@ -249,23 +278,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="AdamVang - WorldMap OOP" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdamVang - WorldMap OOP.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="AdamVang-CYOA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -300,20 +312,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="Class Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Class Notes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.AdamVang - WorldMap OOP" />
-      <item index="1" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
-      <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
-      <item index="3" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
-      <item index="4" class="java.lang.String" itemvalue="Python.AdamVang-CYOA1" />
+      <item index="0" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
+      <item index="1" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
+      <item index="2" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
+      <item index="3" class="java.lang.String" itemvalue="Python.AdamVang-CYOA1" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Class Notes" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.AdamVang-CYOA1" />
-        <item index="1" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
-        <item index="2" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
-        <item index="3" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
-        <item index="4" class="java.lang.String" itemvalue="Python.AdamVang - WorldMap OOP" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Class Notes" />
+        <item index="2" class="java.lang.String" itemvalue="Python.AdamVang-CYOA" />
+        <item index="3" class="java.lang.String" itemvalue="Python.AdamVang - Items" />
+        <item index="4" class="java.lang.String" itemvalue="Python.AdamVang - Characters" />
       </list>
     </recent_temporary>
   </component>
@@ -334,14 +363,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22986823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43423137" sideWeight="0.5204978" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43423137" sideWeight="0.4795022" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46434233" sideWeight="0.4795022" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -368,7 +398,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -620,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -641,7 +670,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang_WorldMap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="272">
           <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
           <folding>
             <element signature="e#26#739#0" expanded="false" />
@@ -679,19 +708,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Class Notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-Lucky7's.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdamVang - Items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3179">
+          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -705,29 +741,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdamVang - Items.py">
+    <entry file="file://$PROJECT_DIR$/Class Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="188">
+          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AdamVang-CYOA1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2219">
-          <caret line="620" column="53" lean-forward="false" selection-start-line="620" selection-start-column="53" selection-end-line="620" selection-end-column="53" />
+        <state relative-caret-position="-1082">
+          <caret line="568" column="16" lean-forward="false" selection-start-line="568" selection-start-column="16" selection-end-line="568" selection-end-column="16" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#191#208#0" expanded="false" />
+            <element signature="e#1091#1523#0" expanded="false" />
+            <element signature="e#1536#1788#0" expanded="false" />
+            <element signature="e#1807#2074#0" expanded="false" />
+            <element signature="e#2101#2548#0" expanded="false" />
+            <element signature="e#2583#2949#0" expanded="false" />
+            <element signature="e#2995#3208#0" expanded="false" />
+            <element signature="e#3244#3397#0" expanded="false" />
+            <element signature="e#3430#3619#0" expanded="false" />
+            <element signature="e#3657#3816#0" expanded="false" />
+            <element signature="e#3859#4060#0" expanded="false" />
+            <element signature="e#4093#4291#0" expanded="false" />
+            <element signature="e#4318#4568#0" expanded="false" />
+            <element signature="e#4595#4845#0" expanded="false" />
+            <element signature="e#4875#5444#0" expanded="false" />
+            <element signature="e#5485#5631#0" expanded="false" />
+            <element signature="e#5663#5909#0" expanded="false" />
+            <element signature="e#5947#6206#0" expanded="false" />
+            <element signature="e#6243#6498#0" expanded="false" />
+            <element signature="e#6530#6785#0" expanded="false" />
+            <element signature="e#6814#7069#0" expanded="false" />
+            <element signature="e#7109#7367#0" expanded="false" />
+            <element signature="e#7396#7526#0" expanded="false" />
+            <element signature="e#7560#7811#0" expanded="false" />
+            <element signature="e#7840#7970#0" expanded="false" />
+            <element signature="e#8002#8138#0" expanded="false" />
+            <element signature="e#8179#8858#0" expanded="false" />
+            <element signature="e#8884#8986#0" expanded="false" />
+            <element signature="e#9017#9283#0" expanded="false" />
+            <element signature="e#9313#10217#0" expanded="false" />
           </folding>
         </state>
       </provider>
