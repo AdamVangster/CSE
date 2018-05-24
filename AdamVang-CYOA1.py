@@ -38,7 +38,8 @@ Instructions = {
     print('There will be a ghost that will try to kill you.'),
     print('Once you and her are in a room together,'),
     print('you will die.'),
-    time.sleep(time_delay_short)
+    time.sleep(time_delay_short),
+    print('There is some fake keys by the way.')
 }
 
 Controls = {
@@ -445,7 +446,6 @@ drawer = Drawer("A Desk Drawer", "There could be item in this.")
 safe = Safe("Safe", "You can open this with a safe key.")
 padlock = PadLock("PadLock", "You can open this lock with a lock key.")
 
-
 # Make Characters
 hero = Hero("Dashie", 1, [], "You are T H I C C and you don't have aim.")
 ghost = Ghost("Tina", "She is satan daughter.")
@@ -487,8 +487,8 @@ def randomize_container():
 
 
 def randomize_item_room():
-    list_of_items = [backpack, jar, drawer, box, drawer, mask, pizza, water_bottle, clothes]
-    list_of_rooms = [empty_rm2, empty_rm3, kitchen, arcade_rm, storage_rm,
+    list_of_items = [backpack, jar, drawer, box, drawer, mask, pizza, water_bottle]
+    list_of_rooms = [empty_rm2, empty_rm3, arcade_rm, storage_rm,
                      bedroom1, bedroom2, closet1, closet2, bathroom1, bathroom2]
     for item in list_of_items:
         room = random.choice(list_of_rooms)
@@ -505,6 +505,9 @@ directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 randomize_container()
 randomize_item_room()
+eatable = [pizza]
+wearable = [mask]
+drinkable = [water_bottle]
 
 
 def place_monster():
@@ -525,6 +528,24 @@ def move_monster():
             print(rand_direction)
 
 
+def eat_food():
+    for pizza in eatable:
+        if 'eat' in command:
+            Item.eat(pizza)
+
+
+def drink_water():
+    for water_bottle in drinkable:
+        if "drink" in command:
+            Item.drink(water_bottle)
+
+
+def wear_clothes():
+    for mask in wearable:
+        if "wear" in command:
+            Item.put_on(mask)
+
+
 place_monster()
 
 while True:
@@ -538,7 +559,7 @@ while True:
     else:
         print("There is no item in here for you to pick up.")
         print("---")
-        
+
     # if len(hero.location.character) > 0:
     #     print("There are the following characters in the room:")
     #     for char in hero.location.character:
@@ -550,6 +571,7 @@ while True:
         for char in hero.location.character:
             print(char.name)
             print("You died.")
+            print("Play Again?")
             quit(0)
 
     # for lock_key in inventory:
@@ -559,14 +581,11 @@ while True:
     #         print('Good Job')
     #         quit(0)
 
-    for items in inventory:
-        if lock_key in inventory:
-            print('You won.')
-            print('You got out of the house.')
-            print('Good Job, Play Again?')
-            quit(0)
-        else:
-            pass
+    if hero.inventory == lock_key:
+        print('You Won.')
+        print('You got out of the house.')
+        print('Good Job, Play Again?')
+        quit(0)
 
     command = input('>_').lower().strip()
     if hero.location.character is not None:
@@ -583,9 +602,12 @@ while True:
     #     item = command[8:]
     # if command[:4] == "open":
     #     item = command[5:]
-
-    if "drink" in command:
-        water_bottle.drink()
+    if mask or pizza or water_bottle in hero.inventory:
+        eat_food()
+        drink_water()
+        wear_clothes()
+    else:
+        print("You don't have the item in your inventory.")
     if "take" in command:
         if hero.location.item is not None:
             hero.pick_up(hero.location.item)
@@ -600,7 +622,7 @@ while True:
         if hero.inventory is not None:
             hero.location.item = hero.inventory
             hero.drop(hero.inventory)
-
+            print('---')
         else:
             print("You don't have any item in your inventory.")
             print("---")
@@ -610,7 +632,12 @@ while True:
         if isinstance(hero.location.item, Container):
             hero.location.item.open(hero.location)
             print("You opened the container.")
-            print("---")
+            if hero.location.item is not None:
+                print("There is a(n) %s in the room" % hero.location.item.name)
+                print("---")
+            else:
+                print("There is no item in here for you to pick up.")
+                print("---")
             move_monster()
         else:
             if hero.location.item is None:
